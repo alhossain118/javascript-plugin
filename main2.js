@@ -34,28 +34,28 @@
 
   // Public Methods
 
-  Modal.prototype.close = function() {
-    var _ = this;
-    this.modal.className = this.modal.className.replace(" scotch-open", "");
-    this.overlay.className = this.overlay.className.replace(" scotch-open",
-      "");
-    this.modal.addEventListener(this.transitionEnd, function() {
-      _.modal.parentNode.removeChild(_.modal);
-    });
-    this.overlay.addEventListener(this.transitionEnd, function() {
-      if(_.overlay.parentNode) _.overlay.parentNode.removeChild(_.overlay);
-    });
-  }
-
-  Modal.prototype.open = function() {
-    buildOut.call(this);
-    initializeEvents.call(this);
-    window.getComputedStyle(this.modal).height;
-    this.modal.className = this.modal.className +
-      (this.modal.offsetHeight > window.innerHeight ?
-        " scotch-open scotch-anchored" : " scotch-open");
-    this.overlay.className = this.overlay.className + " scotch-open";
-  }
+  // Modal.prototype.close = function() {
+  //   var _ = this;
+  //   this.modal.className = this.modal.className.replace(" scotch-open", "");
+  //   this.overlay.className = this.overlay.className.replace(" scotch-open",
+  //     "");
+  //   this.modal.addEventListener(this.transitionEnd, function() {
+  //     _.modal.parentNode.removeChild(_.modal);
+  //   });
+  //   this.overlay.addEventListener(this.transitionEnd, function() {
+  //     if(_.overlay.parentNode) _.overlay.parentNode.removeChild(_.overlay);
+  //   });
+  // }
+  //
+  // Modal.prototype.open = function() {
+  //   buildOut.call(this);
+  //   initializeEvents.call(this);
+  //   window.getComputedStyle(this.modal).height;
+  //   this.modal.className = this.modal.className +
+  //     (this.modal.offsetHeight > window.innerHeight ?
+  //       " scotch-open scotch-anchored" : " scotch-open");
+  //   this.overlay.className = this.overlay.className + " scotch-open";
+  // }
 
   // Private Methods
 
@@ -112,36 +112,40 @@
 
   }
 
-  function extendDefaults(source, properties) {
-    var property;
-    for (property in properties) {
-      if (properties.hasOwnProperty(property)) {
-        source[property] = properties[property];
-      }
-    }
-    return source;
-  }
+  // function extendDefaults(source, properties) {
+  //   var property;
+  //   for (property in properties) {
+  //     if (properties.hasOwnProperty(property)) {
+  //       source[property] = properties[property];
+  //     }
+  //   }
+  //   return source;
+  // }
 
-  function initializeEvents() {
-
-    if (this.closeButton) {
-      this.closeButton.addEventListener('click', this.close.bind(this));
-    }
-
-    if (this.overlay) {
-      this.overlay.addEventListener('click', this.close.bind(this));
-    }
-
-  }
-
-  function transitionSelect() {
-    var el = document.createElement("div");
-    if (el.style.WebkitTransition) return "webkitTransitionEnd";
-    if (el.style.OTransition) return "oTransitionEnd";
-    return 'transitionend';
-  }
+  // function initializeEvents() {
+  //
+  //   if (this.closeButton) {
+  //     this.closeButton.addEventListener('click', this.close.bind(this));
+  //   }
+  //
+  //   if (this.overlay) {
+  //     this.overlay.addEventListener('click', this.close.bind(this));
+  //   }
+  //
+  // }
+  //
+  // function transitionSelect() {
+  //   var el = document.createElement("div");
+  //   if (el.style.WebkitTransition) return "webkitTransitionEnd";
+  //   if (el.style.OTransition) return "oTransitionEnd";
+  //   return 'transitionend';
+  // }
 
 }());
+//////////////////////////////////////////
+//////////////////////////////////////////
+//////////////////////////////////////////
+
 
 var myContent = document.getElementById('content');
 
